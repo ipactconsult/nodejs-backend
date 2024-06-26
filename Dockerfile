@@ -1,10 +1,10 @@
 
 
 # Base image
-FROM node:14-alpine
+FROM node:20.5
 
 # Set the working directory inside the container
-WORKDIR /usr/src/app
+WORKDIR /nodejs-app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
@@ -20,8 +20,7 @@ COPY . .
 
 
 # Expose any necessary ports (if applicable)
- EXPOSE 1234
- EXPOSE 1235
+ EXPOSE 4321
 
 # Default command to run the application (if applicable)
 CMD [ "npm","start" ]
