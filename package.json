@@ -6,7 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "start": "nodemon index",
-    "test": "mocha test/virement/*.test.js"
+    "test": "mocha test/virement/*.test.js",
+    "start:sonar":"node sonar-scanner.js"
   },
   "keywords": [],
   "author": "",
