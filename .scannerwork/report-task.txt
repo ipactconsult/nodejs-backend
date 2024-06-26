@@ -1,0 +1,6 @@
+projectKey=nodejs-backend
+serverUrl=http://192.168.33.10:9002
+serverVersion=10.6.0.92116
+dashboardUrl=http://192.168.33.10:9002/dashboard?id=nodejs-backend
+ceTaskId=124063d3-183e-4cda-b9e7-a057beb5314c
+ceTaskUrl=http://192.168.33.10:9002/api/ce/task?id=124063d3-183e-4cda-b9e7-a057beb5314c
