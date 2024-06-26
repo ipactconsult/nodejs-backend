@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "start": "nodemon index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/virement/*.test.js"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +22,15 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.1.0",
+    "node-fetch": "^2.6.6",
     "nodemailer": "^6.9.8",
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "sinon": "^18.0.0",
+    "sonarqube-scanner": "^4.0.1",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.5.1"
   }
 }
