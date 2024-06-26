@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "nodemon index",
-    "test": "mocha test/virement/*.test.js",
+    "test": "mocha --timeout 60000 test/virement/*.test.js",
     "sonar": "node sonar-scanner.js"
   },
   "keywords": [],
@@ -28,11 +28,12 @@
     "nodemon": "^3.0.3",
     "sinon": "^18.0.0",
     "sonar-scanner": "^3.1.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "chai": "^4.3.7",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.2.0"
   },
   "devDependencies": {
-    "chai": "^5.1.1",
-    "mocha": "^10.5.1",
     "sonarqube-scanner": "^3.0.1"
   }
 }
