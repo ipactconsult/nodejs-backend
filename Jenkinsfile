@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment{
- DOCKERHUB_USERNAME = "ipactconsult"  
- }
+    DOCKERHUB_USERNAME = "ipactconsult"  
+    }
     stages {
         stage('Get Started') {
             steps {
@@ -60,41 +60,38 @@ pipeline {
                      sh 'npm run sonar'
                    }
              }
-        }
-        
+        }       
         stage('Docker Image') {
             steps {
                 // Authorize Jenkins To Execute Build Docker Image By Executing Dockerfile ...
                 sh 'sudo docker build -t ipactconsult/nodejs-app:v1.0.1 .'
             }
-        }
-        
+        }    
         stage('Docker Login') {
             steps {
                 // Authorize Jenkins To Establish Connection With DockerHub ...
-                withCredentials([usernamePassword(credentialsId: 'jendoc', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'jendoc', usernameVariable: 'DOCKERHUB_USERNAME', 
+                passwordVariable: 'DOCKERHUB_PASSWORD')]) {
                     sh "docker login -u \$DOCKERHUB_USERNAME -p \$DOCKERHUB_PASSWORD"
                 }
             }
-        }
-        
+        }    
         stage('Docker Push') {
             steps {
                 // Authorize Jenkins To Push Dockerfile Image  ...
                 script {
-                withCredentials([usernamePassword(credentialsId: 'jendoc', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'jendoc', usernameVariable: 'DOCKERHUB_USERNAME', 
+                passwordVariable: 'DOCKERHUB_PASSWORD')]) {
                         sh "docker push ipactconsult/nodejs-app:v1.0.1"
                     }
                 }
             }
-        }
-        
+        }   
         stage('END OF PIPELINE') {
             steps {
                 // Close Building Pipeline
                 echo "Pipeline Closed"
             }
-        }
-        
+        }      
     }
 }
