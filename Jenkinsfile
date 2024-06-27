@@ -86,7 +86,16 @@ pipeline {
                     }
                 }
             }
-        }   
+        }  
+
+         stage('Run Container') {
+            steps {
+                // Authorize Jenkins To Execute Build Docker Image By Executing Dockerfile ...
+                sh 'sudo docker-compose up -d'
+            }
+        }    
+
+
         stage('END OF PIPELINE') {
             steps {
                 // Close Building Pipeline
