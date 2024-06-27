@@ -64,7 +64,7 @@ pipeline {
         stage('Docker Image') {
             steps {
                 // Authorize Jenkins To Execute Build Docker Image By Executing Dockerfile ...
-                sh 'sudo docker build -t ipactconsult/nodejs-app:v1.0.2 .'
+                sh 'sudo docker build -t ipactconsult/nodejs-app:v1.0.3 .'
             }
         }    
         stage('Docker Login') {
@@ -82,7 +82,7 @@ pipeline {
                 script {
                 withCredentials([usernamePassword(credentialsId: 'jendoc', usernameVariable: 'DOCKERHUB_USERNAME', 
                 passwordVariable: 'DOCKERHUB_PASSWORD')]) {
-                        sh "docker push ipactconsult/nodejs-app:v1.0.2"
+                        sh "docker push ipactconsult/nodejs-app:v1.0.3"
                     }
                 }
             }
